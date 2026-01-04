@@ -131,7 +131,7 @@ export default function Login() {
 
   return (
     <motion.main 
-      className="min-h-screen flex items-center justify-center overflow-hidden bg-[#6D18CE] p-4 relative"
+      className="min-h-screen flex items-center justify-center overflow-x-hidden overflow-y-auto bg-[#6D18CE] p-3 sm:p-4 md:p-6 relative w-full"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
@@ -140,7 +140,7 @@ export default function Login() {
       <div className="absolute inset-0 pointer-events-none">
         {/* Mouse-following gradient orbs */}
         <motion.div
-          className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-white/10 to-purple-300/10 blur-3xl"
+          className="absolute w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-r from-white/10 to-purple-300/10 blur-3xl"
           animate={{
             x: mousePosition.x * 0.05 - 200,
             y: mousePosition.y * 0.05 - 200,
@@ -148,7 +148,7 @@ export default function Login() {
           transition={{ type: "spring", stiffness: 30, damping: 20 }}
         />
         <motion.div
-          className="absolute w-64 h-64 rounded-full bg-gradient-to-r from-pink-300/10 to-blue-300/10 blur-2xl"
+          className="absolute w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full bg-gradient-to-r from-pink-300/10 to-blue-300/10 blur-2xl"
           animate={{
             x: mousePosition.x * -0.03 + 100,
             y: mousePosition.y * -0.03 + 100,
@@ -221,36 +221,36 @@ export default function Login() {
       </div>
       {/* Main Login Popup Container */}
       <motion.div 
-        className="relative w-[1400px] h-[856px] bg-[#6D18CE] rounded-[40px] flex"
+        className="relative w-full max-w-[1400px] min-h-[600px] sm:min-h-[700px] md:min-h-[856px] bg-[#6D18CE] rounded-2xl sm:rounded-3xl md:rounded-[40px] flex flex-col lg:flex-row my-4 sm:my-6 md:my-8"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
                  {/* Left Section - Purple Background with Content */}
          <motion.section 
-           className="w-[577px] h-[856px] relative"
+           className="w-full lg:w-[577px] min-h-[300px] sm:min-h-[400px] lg:h-auto lg:min-h-[856px] relative hidden lg:flex flex-col items-center justify-center p-6 sm:p-8 md:p-12"
            initial={{ x: -100, opacity: 0 }}
            animate={{ x: 0, opacity: 1 }}
            transition={{ duration: 0.8 }}
          >
            {/* Logo */}
            <motion.div
-             className="absolute top-[64px] left-[63px]"
+             className="absolute top-4 sm:top-6 md:top-8 lg:top-[64px] left-4 sm:left-6 md:left-8 lg:left-[63px]"
              initial={{ y: -20, opacity: 0 }}
              animate={{ y: 0, opacity: 1 }}
              transition={{ delay: 0.3, duration: 0.6 }}
            >
-             <Image src="/icons/logo.svg" alt="Logo" width={68} height={68} className="w-[68px] h-[68px] object-contain" />
+             <Image src="/icons/logo.svg" alt="Logo" width={68} height={68} className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-[68px] lg:h-[68px] object-contain" />
            </motion.div>
            
            {/* Main Text */}
            <motion.div 
-             className="absolute top-[172px] left-[63px] w-[457.73px] h-[240px]"
+             className="w-full max-w-[457.73px] mt-16 sm:mt-20 md:mt-24 lg:mt-0 lg:absolute lg:top-[172px] lg:left-[63px] px-4 sm:px-6"
              initial={{ y: 50, opacity: 0 }}
              animate={{ y: 0, opacity: 1 }}
              transition={{ delay: 0.5, duration: 0.8 }}
            >
-            <div className="text-[39.375px] leading-[48px] font-normal text-white">
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-[39.375px] leading-tight sm:leading-snug md:leading-normal lg:leading-[48px] font-normal text-white">
               <StaggeredText
                 text="Start your journey with just one click."
                 className="block mb-2"
@@ -275,18 +275,18 @@ export default function Login() {
            
            {/* Mascot Image */}
            <motion.div
-             className="absolute top-[400px] left-[75px]"
+             className="mt-6 sm:mt-8 md:mt-12 lg:mt-0 lg:absolute lg:top-[400px] lg:left-[75px]"
              initial={{ scale: 0.8, opacity: 0 }}
              animate={{ scale: 1, opacity: 1 }}
              transition={{ delay: 0.7, duration: 0.6 }}
            >
-             <Image src="/landingPage.png" alt="Mascot" width={407} height={352} className="w-[407px] h-[352px] object-contain" />
+             <Image src="/landingPage.png" alt="Mascot" width={407} height={352} className="w-48 h-auto sm:w-56 sm:h-auto md:w-64 md:h-auto lg:w-[407px] lg:h-[352px] object-contain" />
            </motion.div>
          </motion.section>
 
                  {/* Right Section - White Form Card */}
          <motion.section 
-           className="w-[823px] h-[856px] bg-white rounded-[40px] shadow-[-21px_0px_144px_#6219B5] relative"
+           className="w-full lg:w-[823px] lg:h-[856px] bg-white rounded-2xl sm:rounded-3xl md:rounded-[40px] shadow-lg lg:shadow-[-21px_0px_144px_#6219B5] relative flex-1 min-h-[600px] sm:min-h-[700px]"
            initial={{ x: 100, opacity: 0 }}
            animate={{ x: 0, opacity: 1 }}
            transition={{ duration: 0.8 }}
@@ -295,7 +295,7 @@ export default function Login() {
           {/* Super Admin Login Button - Top Right */}
           <motion.button
             onClick={() => router.push('/super-admin-login')}
-            className="absolute top-6 right-6 z-10 px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:from-red-700 hover:to-red-800"
+            className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 z-10 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-red-600 to-red-700 text-white text-xs sm:text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:from-red-700 hover:to-red-800 touch-manipulation"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, x: 20 }}
@@ -306,10 +306,10 @@ export default function Login() {
           </motion.button>
 
           {/* Main Content Container */}
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full px-4 sm:px-6 md:px-8 lg:px-0 py-6 sm:py-8 md:py-12 lg:py-0">
             {/* Role Selector Tabs */}
             <motion.div 
-              className="absolute top-[152px] left-[154px] w-[514px] h-[56px]"
+              className="mt-12 sm:mt-16 md:mt-20 lg:mt-0 lg:absolute lg:top-[152px] lg:left-[154px] w-full lg:w-[514px] h-12 sm:h-14 md:h-[56px] mb-6 sm:mb-8"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.5 }}
@@ -319,7 +319,7 @@ export default function Login() {
                   <motion.button 
                     key={role}
                     onClick={() => setSelectedRole(role)}
-                    className={`flex-1 px-4 py-3 rounded-lg font-normal text-[13px] transition-all duration-200 ${
+                    className={`flex-1 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 rounded-lg font-normal text-xs sm:text-[13px] transition-all duration-200 touch-manipulation ${
                       selectedRole === role
                         ? 'bg-white text-[#101828] shadow-sm' 
                         : 'text-[#667085]'
@@ -338,7 +338,7 @@ export default function Login() {
 
             {/* Welcome back Title */}
             <motion.h2 
-              className="absolute top-[258px] left-[154px] text-[24.7297px] leading-[30px] font-bold text-black w-[190px] h-[30px]"
+              className="mt-6 sm:mt-8 md:mt-10 lg:mt-0 lg:absolute lg:top-[258px] lg:left-[154px] text-xl sm:text-2xl md:text-[24.7297px] leading-tight sm:leading-snug md:leading-[30px] font-bold text-black w-auto lg:w-[190px] mb-2 sm:mb-3"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.5 }}
@@ -348,7 +348,7 @@ export default function Login() {
 
             {/* Welcome back Subtitle */}
             <motion.p 
-              className="absolute top-[300px] left-[155px] w-[433px] text-[16px] leading-[32px] font-normal text-[#454545]"
+              className="mt-2 sm:mt-3 lg:mt-0 lg:absolute lg:top-[300px] lg:left-[155px] w-full lg:w-[433px] text-sm sm:text-base md:text-[16px] leading-relaxed sm:leading-7 md:leading-[32px] font-normal text-[#454545] mb-6 sm:mb-8"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.85, duration: 0.5 }}
@@ -359,45 +359,45 @@ export default function Login() {
             {/* Login Form */}
             <motion.form 
               onSubmit={handleSubmit}
-              className="absolute top-[359px] left-[155px] w-[514px]"
+              className="mt-4 sm:mt-6 lg:mt-0 lg:absolute lg:top-[359px] lg:left-[155px] w-full lg:w-[514px]"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.1, duration: 0.6 }}
             >
               {/* Email Input */}
-              <div className="relative mb-[15px]">
+              <div className="relative mb-3 sm:mb-4">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="w-full h-[60px] px-[47px] border-[0.5px] border-[#C2C2C2] rounded-[70px] text-[16.0016px] leading-[19px] font-medium text-black bg-transparent focus:outline-none focus:border-[#6D18CE] transition-colors"
+                  className="w-full h-12 sm:h-14 md:h-[60px] px-4 sm:px-6 md:px-[47px] border-[0.5px] border-[#C2C2C2] rounded-full sm:rounded-[70px] text-sm sm:text-base md:text-[16.0016px] leading-tight sm:leading-[19px] font-medium text-black bg-transparent focus:outline-none focus:border-[#6D18CE] transition-colors touch-manipulation"
                 />
               </div>
 
               {/* Password Input */}
-              <div className="relative mb-[21px]">
+              <div className="relative mb-4 sm:mb-5 md:mb-[21px]">
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
                   required
-                  className="w-full h-[60px] px-[47px] border-[0.5px] border-[#C2C2C2] rounded-[70px] text-[16.0016px] leading-[19px] font-medium text-black bg-transparent focus:outline-none focus:border-[#6D18CE] transition-colors"
+                  className="w-full h-12 sm:h-14 md:h-[60px] px-4 sm:px-6 md:px-[47px] border-[0.5px] border-[#C2C2C2] rounded-full sm:rounded-[70px] text-sm sm:text-base md:text-[16.0016px] leading-tight sm:leading-[19px] font-medium text-black bg-transparent focus:outline-none focus:border-[#6D18CE] transition-colors touch-manipulation"
                 />
               </div>
 
               {/* Remember me and Forgot password */}
-              <div className="flex justify-between items-center mb-[18px]">
-                <div className="flex items-center gap-[6px]">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 mb-4 sm:mb-5">
+                <div className="flex items-center gap-2 sm:gap-[6px]">
                   <input
                     type="checkbox"
-                    className="w-[34px] h-[34px] border border-black rounded"
+                    className="w-5 h-5 sm:w-6 sm:h-6 md:w-[34px] md:h-[34px] border border-black rounded touch-manipulation"
                   />
-                  <span className="text-[13px] leading-[16px] font-normal text-black">Remember me</span>
+                  <span className="text-xs sm:text-[13px] leading-tight sm:leading-[16px] font-normal text-black">Remember me</span>
                 </div>
-                <span className="text-[13px] leading-[16px] font-bold text-[#6D18CE] cursor-pointer hover:text-[#5A14B0] transition-colors">
+                <span className="text-xs sm:text-[13px] leading-tight sm:leading-[16px] font-bold text-[#6D18CE] cursor-pointer hover:text-[#5A14B0] transition-colors touch-manipulation">
                   Forgot password
                 </span>
               </div>
@@ -421,7 +421,7 @@ export default function Login() {
               <motion.button
                 type="submit"
                 disabled={loading}
-                className="w-[514px] h-[69px] bg-gradient-to-r from-[#6D18CE] to-[#8B5CF6] text-white rounded-[90px] font-semibold text-[16.0016px] flex items-center justify-center mx-auto shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed hover-glow"
+                className="w-full lg:w-[514px] h-12 sm:h-14 md:h-16 lg:h-[69px] bg-gradient-to-r from-[#6D18CE] to-[#8B5CF6] text-white rounded-full sm:rounded-[90px] font-semibold text-sm sm:text-base md:text-[16.0016px] flex items-center justify-center mx-auto shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed hover-glow touch-manipulation"
                 whileHover={{ 
                   scale: 1.02,
                   boxShadow: "0 20px 25px -5px rgba(109, 24, 206, 0.4)"
@@ -462,15 +462,15 @@ export default function Login() {
 
             {/* Register Link */}
             <motion.div 
-              className="absolute top-[700px] left-[308px] text-center w-[205px] h-[16px]"
+              className="mt-6 sm:mt-8 lg:mt-0 lg:absolute lg:top-[700px] lg:left-[308px] text-center w-full lg:w-[205px] mb-4 sm:mb-6 lg:mb-0"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.3, duration: 0.4 }}
             >
-              <span className="text-[13px] leading-[16px] font-normal text-black">Don&apos;t have an account? </span>
+              <span className="text-xs sm:text-[13px] leading-tight sm:leading-[16px] font-normal text-black">Don&apos;t have an account? </span>
               <motion.span
                 onClick={() => router.push('/register')}
-                className="text-[#6D18CE] hover:text-[#5A14B0] font-semibold cursor-pointer text-[13px] transition-colors duration-200"
+                className="text-[#6D18CE] hover:text-[#5A14B0] font-semibold cursor-pointer text-xs sm:text-[13px] transition-colors duration-200 touch-manipulation"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -483,12 +483,12 @@ export default function Login() {
        
        {/* Google Translate Button - Bottom Left of Screen */}
        <motion.div 
-         className="fixed bottom-4 left-4 z-50"
+         className="fixed bottom-3 sm:bottom-4 left-3 sm:left-4 z-50"
          initial={{ y: 20, opacity: 0 }}
          animate={{ y: 0, opacity: 1 }}
          transition={{ delay: 0.4, duration: 0.6 }}
        >
-         <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg px-3 py-2 shadow-lg">
+         <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 shadow-lg">
          </div>
        </motion.div>
      </motion.main>
